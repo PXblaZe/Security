@@ -20,7 +20,6 @@ class Account:
             c = i.split('')
             l.append(c[2])
         l.append('')
-        print(l)
         usrid = ''
         while usrid in l:
             usrid = input('User Id (Must contain a non alphanumeric character): ')
