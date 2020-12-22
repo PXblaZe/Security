@@ -34,7 +34,26 @@ def algo(lenP = 0, startsWith = '', endsWith = ''):
                     if etr[k] == chrs[-1]: continue
                     else:
                         etr = etr[0:k] + chrs[chrs.index(etr[k])+1] + chrs[0]*len(etr[k+1:])
-                        break            
+                        break           
+    else:
+        np = 0
+        for a in range(1,1-lenP):
+            np += len(chrs)**a
+        etr = chrs[-1]*(-lenP-1)
+        r = 1
+        while r <= np:
+            for j in range(-1, -len(chrs)-1, -1): 
+                oStream(startsWith + etr + chrs[j] + endsWith)
+                r+=1
+            if etr == chrs[0]*len(etr):
+                etr = chrs[-1]*(len(etr)-1)
+            else:
+                for k in range(len(etr)-1, -1, -1):
+                    if etr[k] == chrs[0]: continue
+                    else:
+                        etr = etr[0:k] + chrs[chrs.index(etr[k])-1] + chrs[-1]*len(etr[k+1:])
+                        break
+                        
 
 a = time()
 
